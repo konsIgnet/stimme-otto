@@ -132,9 +132,19 @@ if not df.empty:
     mood_by_date.plot(kind="line", marker="o", color="#6A5ACD", ax=ax1)
     ax1.set_facecolor("none")
     ax1.figure.set_facecolor("none")
-    ax1.set_ylabel("Stimmung (1 = Gut, -1 = Schlecht)")
-    ax1.set_xlabel("Datum")
-    ax1.tick_params(colors="black")
+    
+    # Achsenbeschriftung in Grau
+    ax1.set_ylabel("Stimmung (1 = Gut, -1 = Schlecht)", color="#444444", fontsize=12)
+    ax1.set_xlabel("Datum", color="#444444", fontsize=12)
+    
+    # Achsenticks in Grau
+    ax1.tick_params(axis='x', colors="#666666", labelsize=10)
+    ax1.tick_params(axis='y', colors="#666666", labelsize=10)
+    
+    # Rahmenfarbe entfernen oder dezent
+    for spine in ax1.spines.values():
+        spine.set_edgecolor("#CCCCCC")  # Hauchgrau
+
     st.pyplot(fig1)
 
     # Diagramm: Emotionale Stimmung aus Kommentaren
